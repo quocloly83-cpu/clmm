@@ -1,0 +1,311 @@
+
+<div id="loginView" class="authScreen authScreenFull">
+  <section class="appLoginFull">
+    <div class="appNoise"></div>
+    <div class="appLoginHead">
+      <div class="brand">
+        <div class="logoBox">{{LOGO}}</div>
+        <div>
+          <h1 class="title" style="margin:0">AimTrickHead</h1>
+          <div class="sub">Key Active By Huy FanTa</div>
+        </div>
+      </div>
+      <button class="smallBtn ghostBtn" type="button" onclick="showZaloToast()">{{ZALO_ICON}} <span>0818 249 250</span></button>
+    </div>
+
+    <div class="appLoginBody">
+      <div class="appPitch">
+        <div class="authBadge">⚡ HEADLOCK LOGIN RUNTIME</div>
+        <h2 class="appTitle">Đăng nhập full màn
+          <span>giữ key cũ • bỏ Tools • cảm giác giống app hơn</span>
+        </h2>
+        <p class="appDesc">
+          Bản này giữ nguyên hệ key đang hoạt động, chỉ chỉnh phần panel theo yêu cầu:
+          bỏ mục Tools, thay logo Zalo thật, giữ panel style cũ và làm login full màn hình.
+        </p>
+
+        <div class="appInfoGrid">
+          <div class="featureGlass">
+            <b>Giữ key cũ</b>
+            <span>Không đổi logic check, status, create, list, delete và lưu thiết bị.</span>
+          </div>
+          <div class="featureGlass">
+            <b>Zalo real</b>
+            <span>Nút Zalo dùng logo thật và hiện nhanh số hỗ trợ khi bấm.</span>
+          </div>
+          <div class="featureGlass">
+            <b>FX full màn</b>
+            <span>Bật chức năng sẽ hiện phản hồi lớn, rõ, không còn đơn điệu.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="appFormDock">
+        <div class="appFormCard">
+          <div class="dockMini">SECURE KEY LOGIN</div>
+          <h3 class="dockTitle">Vào panel</h3>
+          <p class="loginHint">Nhập key để mở panel. Admin nằm ở đường dẫn riêng <b>/huytan</b>.</p>
+
+          <input id="keyInput" class="input inputXL" placeholder="Nhập Key Vào Đây">
+          <button class="btn btnXL" onclick="dangNhap()">Đăng nhập</button>
+
+          <div class="actionRow">
+            <button class="socialBtn" type="button" onclick="showZaloToast()">{{ZALO_ICON}} <span>Zalo</span></button>
+            <a class="socialBtn" href="{{FACEBOOK_URL}}" target="_blank" rel="noopener noreferrer">{{FACEBOOK_ICON}} <span>Facebook</span></a>
+          </div>
+
+          <div id="msg" class="msg"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer" style="text-align:left;margin-top:18px">CRE HUY FANTA</div>
+  </section>
+</div>
+
+<div id="panelView" class="wrap hidden">
+  <div class="card">
+    <div class="top">
+      <div class="brand">
+        <div class="logoBox">{{LOGO}}</div>
+        <div>
+          <h1 class="title">AimTrickHead VIP</h1>
+          <div class="sub">Bản bỏ Tools • giữ key cũ • panel style cũ</div>
+          <div class="credit">CRE HUY FANTA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="topLine">
+        <div class="pill">✨ VIP ACTIVE</div>
+        <button class="smallBtn" onclick="dangXuat()">Thoát</button>
+      </div>
+
+      <div class="noticeBox" id="keyNotice">Key đang hoạt động.</div>
+
+      <div class="contactCard">
+        <div class="contactMeta">
+          <div class="contactIcon">{{ZALO_ICON}}</div>
+          <div class="contactText">
+            <p class="big">Zalo hỗ trợ chính thức</p>
+            <p class="small">Bấm nút để hiện số Zalo admin nhanh.</p>
+          </div>
+        </div>
+        <button class="simpleBtn" type="button" onclick="showZaloToast()">Hiện số Zalo</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tabBtn active" data-tab="tab1" onclick="openTab('tab1', this)">Main</button>
+        <button class="tabBtn" data-tab="tab2" onclick="openTab('tab2', this)">Boost</button>
+        <button class="tabBtn" data-tab="tab3" onclick="openTab('tab3', this)">Social</button>
+        <button class="tabBtn" data-tab="tab4" onclick="openTab('tab4', this)">TikTok</button>
+      </div>
+
+      <div id="tab1" class="tabPane active">
+        <div class="tile"><div class="row"><div><p class="name">AimTrickHead</p><p class="desc">Bật trước khi dùng để giữ trạng thái panel ổn định.</p></div><label class="switch"><input type="checkbox" id="f1" onchange="toggleFx(this,'AimTrickHead')"><span class="slider"></span></label></div></div>
+        <div class="tile"><div class="row"><div><p class="name">Bám Đầu</p><p class="desc">Phản hồi ngay sau khi bật, giữ thao tác ổn định hơn.</p></div><label class="switch"><input type="checkbox" id="f2" onchange="toggleFx(this,'Bám Đầu')"><span class="slider"></span></label></div></div>
+        <div class="tile"><div class="row"><div><p class="name">Nhẹ Tâm</p><p class="desc">Cho cảm giác vuốt gọn và êm hơn sau khi kích hoạt.</p></div><label class="switch"><input type="checkbox" id="f3" onchange="toggleFx(this,'Nhẹ Tâm')"><span class="slider"></span></label></div></div>
+      </div>
+
+      <div id="tab2" class="tabPane">
+        <div class="tile"><div class="row"><div><p class="name">Nhẹ Tâm + Fix Rung</p><p class="desc">Giữ phản hồi đều hơn sau khi bật.</p></div><label class="switch"><input type="checkbox" id="f4" onchange="toggleFx(this,'Nhẹ Tâm + Fix Rung')"><span class="slider"></span></label></div></div>
+        <div class="tile"><div class="row"><div><p class="name">Tối Ưu Mạnh</p><p class="desc">Ưu tiên độ mượt và độ ổn định thao tác.</p></div><label class="switch"><input type="checkbox" id="f5" onchange="toggleFx(this,'Tối Ưu Mạnh')"><span class="slider"></span></label></div></div>
+        <div class="tile"><div class="row"><div><p class="name">Buff Nhạy x Nhẹ Tâm</p><p class="desc">Tăng cảm giác nhạy kết hợp vuốt nhẹ hơn.</p></div><label class="switch"><input type="checkbox" id="f6" onchange="toggleFx(this,'Buff Nhạy x Nhẹ Tâm')"><span class="slider"></span></label></div></div>
+        <div class="tile"><div class="row"><div><p class="name">Game Boost</p><p class="desc">Tối ưu phản hồi và độ mượt ngay sau khi bật.</p></div><label class="switch"><input type="checkbox" id="f7" onchange="toggleFx(this,'Game Boost')"><span class="slider"></span></label></div></div>
+        <div class="tile">
+          <p class="name">Sensi Control</p>
+          <p class="desc">Kéo thanh để điều chỉnh theo mức phù hợp.</p>
+          <div class="sliderWrap">
+            <div class="rangeLabel"><span>Level</span><span id="sensiValue">60</span></div>
+            <input type="range" min="1" max="120" value="60" id="sensiRange" oninput="updateSensi(this.value)">
+          </div>
+        </div>
+      </div>
+
+      <div id="tab3" class="tabPane">
+        <div class="actionRow">
+          <button class="socialBtn" type="button" onclick="showZaloToast()">{{ZALO_ICON}} <span>Zalo</span></button>
+          <a class="socialBtn" href="{{FACEBOOK_URL}}" target="_blank" rel="noopener noreferrer">{{FACEBOOK_ICON}} <span>Facebook</span></a>
+        </div>
+        <div class="footer">Bấm Zalo để hiện số 0818 249 250, có copy nhanh nếu trình duyệt hỗ trợ.</div>
+      </div>
+
+      <div id="tab4" class="tabPane">
+        <div class="actionRow">
+          <a class="socialBtn" href="{{TIKTOK_URL}}" target="_blank" rel="noopener noreferrer">🎵 <span>TikTok</span></a>
+          <button class="socialBtn" type="button" onclick="showZaloToast()">{{ZALO_ICON}} <span>Liên hệ Admin</span></button>
+        </div>
+        <div class="footer">Admin tách riêng tại đường dẫn /huytan để test host mới nhanh hơn.</div>
+      </div>
+
+      <div class="liveFx" id="liveFxBox">> standby_panel --ready
+> profile loaded
+> secure runtime online</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="fxOverlay" id="fxOverlay"><div class="fxCard"><div class="fxGlow"></div><h3 class="fxTitle" id="fxTitle">ĐÃ BẬT</h3><p class="fxSub" id="fxSub">Module đang phản hồi</p></div></div>
+
+<style>
+.authScreenFull{padding:0}
+.appLoginFull{position:relative;z-index:1;min-height:100vh;width:100%;padding:20px 18px 24px;display:flex;flex-direction:column;justify-content:space-between}
+.appNoise{position:absolute;inset:0;pointer-events:none;background:
+radial-gradient(circle at 18% 22%, rgba(98,132,255,.18), transparent 28%),
+radial-gradient(circle at 82% 16%, rgba(146,96,255,.16), transparent 24%),
+linear-gradient(180deg, rgba(255,255,255,.03), transparent 22%, transparent 78%, rgba(255,255,255,.02));opacity:.95}
+.appLoginHead,.appLoginBody,.footer{position:relative;z-index:1}
+.appLoginHead{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ghostBtn{background:rgba(255,255,255,.05)}
+.appLoginBody{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:end;flex:1;padding-top:20px}
+.appPitch{align-self:center;max-width:740px;padding:10px 4px 10px 2px}
+.appTitle{margin:18px 0 10px;font-size:clamp(34px,7vw,72px);line-height:1.02}
+.appTitle span{display:block;margin-top:12px;font-size:.34em;line-height:1.3;color:#aab7d8;font-weight:400}
+.appDesc{margin:0;max-width:680px;color:#c4cee4;line-height:1.75;font-size:15px}
+.appInfoGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.appFormDock{display:flex;align-items:flex-end;justify-content:flex-end}
+.appFormCard{width:min(100%,470px);padding:22px;border-radius:32px;background:linear-gradient(180deg,rgba(12,16,26,.90),rgba(9,12,20,.82));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);box-shadow:0 12px 40px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.02) inset}
+.dockMini{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);font-size:12px;color:#dce6ff}
+.dockTitle{margin:14px 0 8px;font-size:28px}
+.inputXL,.btnXL{height:60px;border-radius:18px}
+.btnXL{font-size:16px}
+@media (max-width:900px){
+  .appLoginBody{grid-template-columns:1fr;align-items:start}
+  .appFormDock{justify-content:stretch}
+  .appFormCard{width:100%}
+  .appInfoGrid{grid-template-columns:1fr}
+}
+</style>
+
+<script>
+const loginView = document.getElementById("loginView");
+const panelView = document.getElementById("panelView");
+const msg = document.getElementById("msg");
+const toast = document.getElementById("toast");
+const liveFxBox = document.getElementById("liveFxBox");
+const fxOverlay = document.getElementById("fxOverlay");
+const fxTitle = document.getElementById("fxTitle");
+const fxSub = document.getElementById("fxSub");
+let toastTimer = 0;
+let overlayTimer = 0;
+
+function getDevice() {
+  const key = "ath_device_id";
+  let v = localStorage.getItem(key);
+  if (!v) {
+    v = (navigator.userAgent || "device") + "|" + (navigator.platform || "unknown") + "|" + Math.random().toString(36).slice(2,10);
+    localStorage.setItem(key, v);
+  }
+  return v;
+}
+function setMsg(text, cls) { msg.className = "msg" + (cls ? " " + cls : ""); msg.textContent = text || ""; }
+function saveSession(data) { localStorage.setItem("ath_token", data.token); localStorage.setItem("ath_key", data.key); }
+function getSession() { return localStorage.getItem("ath_token") || ""; }
+function getSavedKey() { return localStorage.getItem("ath_key") || ""; }
+function clearSession() { localStorage.removeItem("ath_token"); localStorage.removeItem("ath_key"); }
+function showToast(text, cls) {
+  toast.textContent = text;
+  toast.className = "toast show" + (cls === "err" ? " err" : cls === "ok" ? " ok" : "");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.className = "toast", 1800);
+}
+async function showZaloToast() {
+  const number = "0818 249 250";
+  try { await navigator.clipboard.writeText(number); showToast("Zalo 0818 249 250 | đã copy số", "ok"); }
+  catch { showToast("Zalo 0818 249 250", "ok"); }
+}
+function openTab(id, btn) {
+  document.querySelectorAll('.tabPane').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tabBtn').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+function buildNotice(data) {
+  const box = document.getElementById('keyNotice');
+  box.innerHTML = '🔐 Key: <b>' + (getSavedKey() || 'Ẩn') + '</b><br>📱 Thiết bị còn lại: ' + data.usesLeft + '/' + data.totalDevices + '<br>⏳ Hết hạn: ' + data.expireText;
+}
+function writeFx(lines) { liveFxBox.textContent = Array.isArray(lines) ? lines.join('\n') : lines; }
+function fullscreenEffect(label, isOn) {
+  fxTitle.textContent = isOn ? 'ĐÃ BẬT' : 'ĐÃ TẮT';
+  fxSub.textContent = label + (isOn ? ' đang hoạt động' : ' đã ngắt');
+  fxOverlay.classList.add('show');
+  clearTimeout(overlayTimer);
+  overlayTimer = setTimeout(() => fxOverlay.classList.remove('show'), 1300);
+}
+function toggleFx(el, label) {
+  luuTrangThai();
+  writeFx([
+    '> boot_module --name=' + label.replaceAll(' ','_'),
+    '> profile loaded --tier=vip',
+    '> runtime => ' + (el.checked ? 'ACTIVE' : 'OFFLINE'),
+    '> ui_feedback => fullscreen'
+  ]);
+  fullscreenEffect(label, el.checked);
+  showToast(label + (el.checked ? ' đã bật' : ' đã tắt'), el.checked ? 'ok' : 'err');
+}
+function updateSensi(val) {
+  document.getElementById('sensiValue').textContent = val;
+  localStorage.setItem('ath_sensi', String(val));
+  writeFx(['> sensi_control --level=' + val, '> profile tuned', '> response ready']);
+}
+function luuTrangThai() {
+  const state = {};
+  ['f1','f2','f3','f4','f5','f6','f7'].forEach(id => { const el = document.getElementById(id); state[id] = !!(el && el.checked); });
+  localStorage.setItem('ath_state', JSON.stringify(state));
+}
+function taiTrangThai() {
+  try {
+    const state = JSON.parse(localStorage.getItem('ath_state') || '{}');
+    ['f1','f2','f3','f4','f5','f6','f7'].forEach(id => { const el = document.getElementById(id); if (el) el.checked = !!state[id]; });
+    const s = localStorage.getItem('ath_sensi') || '60';
+    document.getElementById('sensiRange').value = s;
+    document.getElementById('sensiValue').textContent = s;
+  } catch (e) {}
+}
+function moPanel(data) {
+  loginView.classList.add('hidden');
+  panelView.classList.remove('hidden');
+  buildNotice(data);
+  taiTrangThai();
+}
+function dangXuat() {
+  clearSession();
+  panelView.classList.add('hidden');
+  loginView.classList.remove('hidden');
+  document.getElementById('keyInput').value = '';
+  setMsg('', '');
+  showToast('Đã thoát', 'err');
+}
+async function dangNhap() {
+  const key = document.getElementById('keyInput').value.trim();
+  if (!key) return setMsg('Vui lòng nhập key.', 'err');
+  setMsg('Đang kiểm tra key...');
+  try {
+    const res = await fetch('/api/check', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ key, device:getDevice() }) });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.msg || 'Đăng nhập thất bại');
+    data.key = key;
+    saveSession(data);
+    setMsg('Đăng nhập thành công.', 'ok');
+    showToast('Đăng nhập thành công', 'ok');
+    moPanel(data);
+  } catch (e) {
+    setMsg(e.message || 'Có lỗi xảy ra', 'err');
+  }
+}
+async function autoLogin() {
+  const token = getSession();
+  if (!token) return;
+  try {
+    const res = await fetch('/api/status', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ token, device:getDevice() }) });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.msg || 'Phiên đã hết');
+    moPanel(data);
+  } catch (e) {
+    clearSession();
+  }
+}
+autoLogin();
+</script>
